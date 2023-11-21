@@ -1,3 +1,4 @@
+import 'package:chef_app/screens/login_screen/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -44,12 +45,21 @@ class ChangeLanguageScreen extends StatelessWidget {
                 height: 190,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20,right: 20),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ContainerChangeLanguage(text: 'English',),
-                    ContainerChangeLanguage(text: 'العربية',),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (
+                              context) => LogInScreen()));
+                        },
+                        child: ContainerChangeLanguage(
+                          text: 'English',
+                        )),
+                    ContainerChangeLanguage(
+                      text: 'العربية',
+                    ),
                   ],
                 ),
               ),
