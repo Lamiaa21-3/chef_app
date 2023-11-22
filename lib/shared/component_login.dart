@@ -8,12 +8,14 @@ class TextFormFieldComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  TextFormField(
+    return TextFormField(
       decoration: InputDecoration(
-
           label: Text('$label'),
-
-          labelStyle: TextStyle(color: Colors.grey),
+          labelStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 16,
+              fontFamily: 'Lato',
+              fontWeight: FontWeight.w700),
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.circular(8),

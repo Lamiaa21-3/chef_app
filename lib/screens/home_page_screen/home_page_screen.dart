@@ -1,3 +1,4 @@
+import 'package:chef_app/screens/edit_profile_screen/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/component_login.dart';
@@ -12,6 +13,7 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   int _selectedIndex = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -26,7 +28,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset('assets/Ellipse 31 (1).png'),
+            Stack(
+              children: [
+                Image.asset('assets/Ellipse 31 (1).png'),
+                Positioned(
+                    top: 80,
+                    left: 80,
+
+                    child: Image.asset('assets/bxs_message-square-edit.png'))
+              ],
+            ),
             SizedBox(
               height: 15,
             ),
@@ -49,7 +60,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
             ),
             HomePageIetm(
               text: 'Edit Profile',
-              onPressed: () {},
+              onPressed:() {
+                Navigator.push(context,
+                    MaterialPageRoute(
+                        builder: (context) => EditProfileScreen()));
+              },
               icon: Icon(Icons.person),
             ),
             SizedBox(
@@ -60,7 +75,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
               onPressed: () {},
               icon: Icon(Icons.visibility_off),
             ),
-
             SizedBox(
               height: 30,
             ),
@@ -74,13 +88,17 @@ class _HomePageScreenState extends State<HomePageScreen> {
             ),
             Row(
               children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.logout,color: Color(0xFFFB5607)),),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.logout, color: Color(0xFFFB5607)),
+                ),
                 Text(
                   'Logout',
                   style: TextStyle(
                       fontFamily: 'Urbanist',
                       fontSize: 17,
-                      fontWeight: FontWeight.w600,color: Color(0xFFFB5607)),
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFFFB5607)),
                 ),
               ],
             ),
@@ -97,7 +115,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
             icon: Icon(Icons.person_2_outlined),
             label: 'Profile',
           ),
-
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.orange,
