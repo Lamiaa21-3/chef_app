@@ -1,3 +1,5 @@
+import 'package:chef_app/screens/category_meal/category_meal.dart';
+import 'package:chef_app/shared/poppins_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/component_login.dart';
@@ -29,21 +31,35 @@ class _AddMealScreenState extends State<AddMealScreen> {
           child: Column(
 
             children: [
-              Image.asset('assets/Ellipse 31.png'),
+              Stack(
+                children: [
+                  Image.asset('assets/Ellipse 31.png'),
+                  Positioned(
+                      top: 110,
+                      left: 110,
+
+                      child: Image.asset('assets/bxs_message-square-edit.png'))
+                ],
+              ),
+
               SizedBox(height: 12,),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Name',
               ),
               SizedBox(height: 12,),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Price',
               ),
               SizedBox(height: 12,),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Category',
               ),
               SizedBox(height: 12,),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Descripition',
               ),
               Row(
@@ -52,13 +68,7 @@ class _AddMealScreenState extends State<AddMealScreen> {
                     child: ListTile(
                       // selectedTileColor:Color(0xFFFB5607) ,
 
-                      title: Text(
-                        'Number',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400),
-                      ),
+                      title: PoppinsText(popText: 'Number',),
                       leading: Radio<SingingCharacter>(
                         activeColor: Color(0xFFFB5607),
                         value: SingingCharacter.Number,
@@ -74,13 +84,7 @@ class _AddMealScreenState extends State<AddMealScreen> {
                   Expanded(
                     child: ListTile(
                       selectedTileColor: Color(0xFFFB5607),
-                      title: const Text(
-                        'Quantity',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400),
-                      ),
+                      title: PoppinsText(popText: 'Quantity',),
                       leading: Radio<SingingCharacter>(
                         activeColor: Color(0xFFFB5607),
                         // fillColor:
@@ -98,6 +102,9 @@ class _AddMealScreenState extends State<AddMealScreen> {
                 ],
               ),
               TextButtonComponents(
+                ontapButton: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> CategoryMeal()));
+                },
                 textButton: 'Add Meal',
               ),
             ],

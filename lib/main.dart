@@ -1,5 +1,6 @@
 import 'package:chef_app/screens/change_language/change_language.dart';
 import 'package:chef_app/screens/create_new_pasword_screen/create_new_password_screen.dart';
+import 'package:chef_app/screens/splash_screeen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChangeLanguageScreen(),
+      home: SplashScreen(),
     );
   }
 }

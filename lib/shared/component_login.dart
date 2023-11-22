@@ -3,13 +3,19 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 class TextFormFieldComponent extends StatelessWidget {
-  TextFormFieldComponent({Key? key, required this.label}) : super(key: key);
+  TextFormFieldComponent({Key? key, required this.label,  this.suffixIcon}) : super(key: key);
   final String label;
+final IconData?  suffixIcon;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+    suffixIcon: GestureDetector(
+      onTap: (){},
+        child:Icon(suffixIcon),
+
+    ),
           label: Text('$label'),
           labelStyle: TextStyle(
               color: Colors.grey,

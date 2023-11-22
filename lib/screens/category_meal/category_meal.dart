@@ -14,6 +14,9 @@ class CategoryMeal extends StatelessWidget {
           child: Column(
       children: [
           TextButtonComponents(
+            ontapButton: (){
+              Navigator.pop(context);
+            },
             textButton: 'Add Meal',
           ),
         SizedBox(

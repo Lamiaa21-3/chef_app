@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../shared/component_login.dart';
+import '../../shared/stack_comonents.dart';
 import '../../shared/text_button_component.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -19,50 +20,47 @@ class EditProfileScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Image.asset('assets/Ellipse 31 (1).png'),
-                  Positioned(
-                      top: 80,
-                      left: 80,
-
-                      child: Image.asset('assets/bxs_message-square-edit.png'))
-                ],
-              ),
+              StackComponet(),
               SizedBox(
                 height: 15,
               ),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Name',
               ),
               SizedBox(
                 height: 15,
               ),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Phone',
               ),
               SizedBox(
                 height: 15,
               ),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Brand Name',
               ),
               SizedBox(
                 height: 15,
               ),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Minimum Charge',
               ),
               SizedBox(
                 height: 15,
               ),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: 'Description',
               ),
               SizedBox(
                 height: 15,
               ),
               TextFormFieldComponent(
+                suffixIcon:null,
                 label: ' Location',
               ),
               SizedBox(

@@ -1,7 +1,12 @@
+import 'package:chef_app/screens/add_meal_screen/add_meal_screen.dart';
+import 'package:chef_app/screens/change_password_screen/change_password_screen.dart';
 import 'package:chef_app/screens/edit_profile_screen/edit_profile_screen.dart';
+import 'package:chef_app/screens/home_page_screen/text_home_page.dart';
+import 'package:chef_app/screens/settings_screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/component_login.dart';
+import '../../shared/stack_comonents.dart';
 import 'home_page_ietm.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -15,6 +20,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>AddMealScreen()));
     setState(() {
       _selectedIndex = index;
     });
@@ -28,97 +34,98 @@ class _HomePageScreenState extends State<HomePageScreen> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Stack(
-              children: [
-                Image.asset('assets/Ellipse 31 (1).png'),
-                Positioned(
-                    top: 80,
-                    left: 80,
-
-                    child: Image.asset('assets/bxs_message-square-edit.png'))
-              ],
-            ),
+            StackComponet(),
             SizedBox(
               height: 15,
             ),
-            Text(
-              'Ammar Ahmed',
-              style: TextStyle(
-                  fontFamily: 'Lato',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700),
+            TextHomePage(
+              textHome: 'Ammar Ahmed',
             ),
             SizedBox(
               height: 10,
             ),
-            Text(
-              'ammar@gmail.com',
-              style: TextStyle(
-                  fontFamily: 'Lato',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600),
+            TextHomePage(
+              textHome: 'ammar@gmail.com',
             ),
             HomePageIetm(
               text: 'Edit Profile',
-              onPressed:() {
-                Navigator.push(context,
+              onPressed: () {
+                Navigator.push(
+                    context,
                     MaterialPageRoute(
                         builder: (context) => EditProfileScreen()));
               },
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person), color: Colors.black,
             ),
             SizedBox(
               height: 30,
             ),
             HomePageIetm(
               text: 'Password',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ChangePasswordScreen()));
+              },
               icon: Icon(Icons.visibility_off),
+              color: Colors.black,
             ),
             SizedBox(
               height: 30,
             ),
             HomePageIetm(
               text: 'Settings',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SettinsScreen()));
+              },
               icon: Icon(Icons.settings),
+              color: Colors.black,
             ),
             SizedBox(
               height: 30,
             ),
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.logout, color: Color(0xFFFB5607)),
-                ),
-                Text(
-                  'Logout',
-                  style: TextStyle(
-                      fontFamily: 'Urbanist',
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFFFB5607)),
-                ),
-              ],
+            HomePageIetm(
+              text: 'Logout',
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.logout),
+              color: Color(0xFFFB5607),
             ),
+
+
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.comment_bank),
+            icon: Icon(
+              Icons.comment_bank,
+              weight: 24,
+            ),
             label: 'Meal',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
+
+            icon: Icon(
+              Icons.person_2_outlined,
+              weight: 24,
+            ),
             label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.orange,
         onTap: _onItemTapped,
+        unselectedLabelStyle: TextStyle(
+            fontFamily: 'Poppins', fontWeight: FontWeight.w700, fontSize: 12),
+        selectedLabelStyle: TextStyle(
+            fontFamily: 'Poppins', fontWeight: FontWeight.w700, fontSize: 12),
       ),
     );
   }

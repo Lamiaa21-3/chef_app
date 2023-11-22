@@ -2,6 +2,7 @@ import 'package:chef_app/screens/login_screen/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../shared/lato_text.dart';
 import 'change_language_components.dart';
 
 class ChangeLanguageScreen extends StatelessWidget {
@@ -23,24 +24,11 @@ class ChangeLanguageScreen extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              Text(
-                'Welcome to Chef App',
-                style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Lato'),
-              ),
+              LatoText(latoText: 'Welcome to Chef App',),
               SizedBox(
                 height: 35,
               ),
-              Text(
-                'Please choose your language ',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontFamily: 'Lato',
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
+             LatoText(latoText: 'Please choose your language'),
               SizedBox(
                 height: 190,
               ),

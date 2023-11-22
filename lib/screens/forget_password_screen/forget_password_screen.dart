@@ -1,3 +1,4 @@
+import 'package:chef_app/shared/lato_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,16 +17,27 @@ class ForgetPasswordScreen extends StatelessWidget {
         title: Text('Forget Password'),
         backgroundColor: Color(0xFFFA9A0C),
       ),
-      body: Column(
-        children: [
-          Image.asset('assets/lock 1.png'),
-          Text(
-            'Enter Your mail and we will send you code to rest your password',
-            style: TextStyle(fontFamily: 'Lato',fontSize: 16,fontWeight: FontWeight.w400),
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image.asset('assets/lock 1.png'),
+              SizedBox(height: 18,),
+
+             LatoText(latoText: 'Enter Your mail and we will send you code to rest your password'),
+              SizedBox(height: 15,),
+              TextFormFieldComponent(
+                label: 'E-mail',
+                suffixIcon: null
+              ),
+              SizedBox(height: 15,),
+              TextButtonComponents(
+                textButton: 'Send Code',
+              ),
+            ],
           ),
-          TextFormFieldComponent(label: 'E-mail',),
-          TextButtonComponents(textButton: 'Send Code',),
-        ],
+        ),
       ),
     );
   }
